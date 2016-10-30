@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+   <classPathEntry location="/home/edsarp/.m2/repository/postgresql/postgresql/9.1-901.jdbc4/postgresql-9.1-901.jdbc4.jar"/>
+
+    <context id="context" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="org.postgresql.Driver"
+                        connectionURL="jdbc:postgresql://localhost:5432/gateway"
+                        userId="postgres"
+                        password="admin92">
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="co.id.collega.gw.domain" targetProject="src/main/java">
+            <property name="enableSubPackages" value="ture"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="resources/mappers" targetProject="src/main/">
+            <property name="enableSubPackages" value="ture"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="co.id.collega.gw.mappers" targetProject="src/main/java">
+            <property name="enableSubPackages" value="ture"/>
+        </javaClientGenerator>
+
+        <!--<table tableName="sys_user"  domainObjectName="User"/>
+        <table tableName="sys_role"  domainObjectName="Role"/>-->
+       <!-- <table tableName="r_user_role"  domainObjectName="UserRole"/>-->
+    </context>
+</generatorConfiguration>
